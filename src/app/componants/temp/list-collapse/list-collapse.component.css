@@ -1,0 +1,19 @@
+.lists
+{
+  padding: 1%;
+  position: fixed;
+  display: block;
+  top:10%;
+  left:0px;
+  right: 0px;
+  height: 85%;
+  width: 15%;
+  background-color: #DCDCDC;
+
+
+}
+
+
+button { margin-right: .5rem;
+} :host ::ng-deep .p-tree { }
+

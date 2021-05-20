@@ -1,0 +1,12 @@
+.header
+{
+  position: fixed;
+  display: block;
+  top:0px;
+  left:0px;
+  right: 0px;
+  height: 10%;
+  width: 100%;
+  background-color: gainsboro;
+
+}

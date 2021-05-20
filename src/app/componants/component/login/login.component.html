@@ -1,0 +1,28 @@
+<p>login works!</p>
+
+<form [formGroup]='loginForm' (ngSubmit)='login()'>
+    <label>userName</label>
+    <input formControlName='name' type ='text'>
+  <!-- <p *ngif="loginForm.get('email').errors">{{loginForm.get('email').errors }}</p>  
+    <pre>
+    {{loginForm.get('email').errors | json }}
+   </pre> --> 
+    <br/>
+    <label>password</label>
+    <input formControlName='password' type='text'>
+  <!--  <pre>
+      {{loginForm.get('password').errors | json }}
+    </pre> -->
+    <br/>
+    <button routerLink='/home'>logIn</button>
+    <a routerLink='/home'>home</a>
+</form>
+
+
+
+<button (click)='login()' >login</button>
+
+<div *ngFor='let user of users'>
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <img src={{user.avatar}}/>
+</div>

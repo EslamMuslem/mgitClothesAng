@@ -1,0 +1,65 @@
+<p>a-form works!</p>
+
+<ng-form [formGroup]="formName" [style.background-color]="bg">
+     <div calss="col-6" *ngFor="let field of fields" >
+         <div class="container" [hidden]="field?.isHidden">
+            <label >{{field?.label}}</label>
+            <input [hidden]="field?.type != enumType.input ? true : false"    [class]="field?.readOnly ? 'form-control trans':'form-control'"
+                 [formControlName]="field?.name"  aria-describedby="emailHelpId" [placeholder]="field?.label">
+            <select [hidden]="field?.type != enumType.list ? true : false"  [class]="field?.readOnly ? 'form-control trans':'form-control'">
+              <option  value="">select</option>
+              <option *ngFor="let list of field?.list" [value]="list['id']">{{list['name']}}</option>
+            </select>
+
+            <small id="confirmpasswordHelpId" *ngIf="formName?.get(field?.name)?.touched && formName?.get(field?.name)?.hasError('required')" class="form-text  text-danger">
+              {{field?.label}} is required
+          </small>
+          <ng-container *ngFor="let error of formName?.get(field?.name)?.errors | keys">
+              <small *ngIf="error !== 'required'" id="loopHelpId"  class="form-text  text-danger" >
+                {{ formName?.get(field?.name)?.errors[error] }}
+              </small>
+          </ng-container>
+
+          </div>
+     </div>
+
+
+
+</ng-form>
+
+<!--
+<ng-form [formGroup]="mainForm" (ngSubmit)="raiseSubmitForm(mainForm)"  [style.background-color]="bg">
+
+  <div class="container" [ngSwitch]="divNo" >
+
+    <div class="row"  let i = index *ngSwitchCase="2">
+
+        <div class="col-6"  *ngFor="let field of fields">
+            <div class="form-group">
+
+                <label  [hidden]="field?.isHidden">{{field?.label}}</label>
+                <input [hidden]="field?.isHidden || (!readOnly )"  [readOnly]="readOnly" [type]="field?.type"
+                [class]="readOnly ? 'form-control trans':'form-control'"
+                [formControlName]="field?.name"  aria-describedby="emailHelpId" [placeholder]="field?.label">
+                <select *ngIf="(!readOnly && field?.isList)" class="form-control"[formControlName]="field?.name">
+                  <option value="">Select </option>
+                  <option *ngFor="let list of field?.list" [value]="list['name']">{{list['name']}}</option>
+
+                </select>
+                <small id="confirmpasswordHelpId" *ngIf="mainForm?.get(field?.name)?.touched && mainForm?.get(field?.name)?.hasError('required')" class="form-text  text-danger">
+                    {{field?.label}} is required
+                </small>
+
+                <ng-container *ngFor="let error of mainForm?.get(field?.name)?.errors|keys">
+                    <small *ngIf="error !== 'required'" id="loopHelpId"  class="form-text  text-danger" >
+                      {{ mainForm?.get(field?.name)?.errors[error] }}
+                    </small>
+                </ng-container>
+            </div>
+
+        </div>
+</div>
+  </div>
+
+</ng-form>
+-->

@@ -1,0 +1,12 @@
+.footer
+{
+  position: fixed;
+  display: block;
+  top:93%;
+  left:0px;
+  right: 0px;
+  height: 7%;
+  width: 100%;
+  background-color: gainsboro;
+
+}

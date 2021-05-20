@@ -1,0 +1,9 @@
+.trans{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+input.trans :focus {
+  border-color: transparent;
+  outline: none !important;
+}
